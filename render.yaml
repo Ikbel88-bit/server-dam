@@ -7,7 +7,7 @@ services:
     buildCommand: |
       export NODE_OPTIONS="--max-old-space-size=1024"
       npm ci --prefer-offline --no-audit
-      npm exec -- nest build --webpack=false
+      npm run build || node node_modules/@nestjs/cli/bin/nest.js build --webpack=false || ./node_modules/.bin/nest build --webpack=false
       npm prune --production
       rm -rf .npm node_modules/.cache
     startCommand: node --max-old-space-size=384 dist/main.js
