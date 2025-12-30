@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && tsc-alias",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:prod": "node --max-old-space-size=384 dist/main.js"
@@ -55,6 +55,7 @@
     "stripe": "^20.0.0",
     "swagger-ui-express": "^5.0.1",
     "module-alias": "^2.2.3",
+    "tsc-alias": "^1.8.10",
     "tsconfig-paths": "^4.2.0",
     "uuid": "^13.0.0"
   },

@@ -7,6 +7,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import * as fs from 'fs';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import { join } from 'path';
 import { IoAdapter } from '@nestjs/platform-socket.io';
 
 async function bootstrap() {
