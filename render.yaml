@@ -10,7 +10,7 @@ services:
       npm run build
       npm prune --production
       rm -rf .npm node_modules/.cache
-    startCommand: node --max-old-space-size=384 dist/main.js
+    startCommand: node --max-old-space-size=384 -r tsconfig-paths/register dist/main.js
     healthCheckPath: /health
     autoDeploy: true
     envVars:
