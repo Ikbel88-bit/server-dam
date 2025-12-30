@@ -38,8 +38,9 @@ import { User, UserSchema } from '../users/user.schema';
     AuthService, 
     SocialAuthService,
     JwtStrategy,
-    GoogleStrategy,
-    AppleStrategy, // ✅ Ajouter
+    // ✅ Stratégies OAuth conditionnelles - seulement si configurées
+    ...(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET ? [GoogleStrategy] : []),
+    ...(process.env.APPLE_CLIENT_ID && process.env.APPLE_TEAM_ID ? [AppleStrategy] : []),
   ],
   exports: [AuthService, JwtStrategy, PassportModule],
 })
