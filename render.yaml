@@ -6,7 +6,7 @@ services:
     plan: free
     buildCommand: |
       export NODE_OPTIONS="--max-old-space-size=1024"
-      npm ci --omit=dev --prefer-offline --no-audit
+      npm ci --prefer-offline --no-audit
       npm run build
       npm prune --production
       rm -rf .npm node_modules/.cache
@@ -21,9 +21,9 @@ services:
       - key: DISABLE_SWAGGER
         value: true
       - key: CLOUDINARY_CLOUD_NAME
-        value: dg39chhco
+        value: du5towhq3
       - key: CLOUDINARY_API_KEY
-        value: 849123737586636
+        value: 133648824722513
       - key: CLOUDINARY_API_SECRET
         sync: false
       - key: MONGODB_URI
