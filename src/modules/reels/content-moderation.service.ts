@@ -28,8 +28,10 @@ export class ContentModerationService {
     const apiKey = this.configService.get<string>('GEMINI_API_KEY');
     
     if (!apiKey) {
-      this.logger.error('❌ GEMINI_API_KEY non définie dans .env');
-      throw new Error('Configuration Gemini manquante');
+      this.logger.warn('⚠️ GEMINI_API_KEY non définie - Modération de contenu désactivée');
+      this.apiKey = '';
+      // Le service fonctionnera en mode dégradé (retournera toujours approuvé)
+      return;
     }
     
     this.apiKey = apiKey;
@@ -224,6 +226,19 @@ export class ContentModerationService {
     filePath: string,
     mimeType: string
   ): Promise<ContentModerationResult> {
+    // Si l'API key n'est pas configurée, retourner un résultat approuvé par défaut
+    if (!this.apiKey) {
+      this.logger.warn('⚠️ Analyse vidéo désactivée - retour approuvé par défaut');
+      return {
+        isApproved: true,
+        isFoodRelated: true,
+        confidence: 50,
+        reason: 'Analyse désactivée (GEMINI_API_KEY non configurée)',
+        detectedCategories: [],
+        detectedDishes: [],
+      };
+    }
+
     try {
       this.logger.log(`🎥 Analyse du fichier: ${filePath}`);
 
@@ -370,6 +385,17 @@ Si ce n'est PAS de la nourriture:
     hashtags: string[] = [],
     categories: string[] = []
   ): Promise<ContentModerationResult> {
+    // Si l'API key n'est pas configurée, retourner un résultat approuvé par défaut
+    if (!this.apiKey) {
+      this.logger.warn('⚠️ Modération désactivée - retour approuvé par défaut');
+      return {
+        isApproved: true,
+        isFoodRelated: true,
+        confidence: 50,
+        reason: 'Modération désactivée (GEMINI_API_KEY non configurée)',
+      };
+    }
+
     try {
       const hashtagsText = hashtags.length > 0 ? hashtags.join(' #') : 'Aucun';
       const categoriesText = categories.length > 0 ? categories.join(', ') : 'Aucune';
