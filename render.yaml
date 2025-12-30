@@ -6,7 +6,6 @@ services:
     plan: free
     buildCommand: |
       export NODE_OPTIONS="--max-old-space-size=1024"
-      export PATH="$PATH:$(pwd)/node_modules/.bin"
       npm ci --prefer-offline --no-audit
       npm run build
       npm prune --production
