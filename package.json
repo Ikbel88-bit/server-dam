@@ -54,6 +54,7 @@
     "streamifier": "^0.1.1",
     "stripe": "^20.0.0",
     "swagger-ui-express": "^5.0.1",
+    "module-alias": "^2.2.3",
     "tsconfig-paths": "^4.2.0",
     "uuid": "^13.0.0"
   },
@@ -107,5 +108,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "_moduleAliases": {
+    "src": "dist"
   }
 }

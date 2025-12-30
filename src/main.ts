@@ -1,11 +1,12 @@
 // src/main.ts - VERSION CORRIGÉE AVEC WEBSOCKET
+// ⚠️ IMPORTANT: module-alias doit être chargé en premier
+require('module-alias/register');
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import * as fs from 'fs';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { join } from 'path';
 import { IoAdapter } from '@nestjs/platform-socket.io';
 
 async function bootstrap() {
