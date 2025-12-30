@@ -6,7 +6,8 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build --webpack=false",
+    "build": "node node_modules/@nestjs/cli/bin/nest.js build --webpack=false",
+    "prebuild": "node -e \"console.log('Building with NestJS CLI...')\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:prod": "node --max-old-space-size=384 dist/main.js"
