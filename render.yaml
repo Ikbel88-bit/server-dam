@@ -21,9 +21,9 @@ services:
       - key: DISABLE_SWAGGER
         value: true
       - key: CLOUDINARY_CLOUD_NAME
-        value: du5towhq3
+        value: dg39chhco
       - key: CLOUDINARY_API_KEY
-        value: 133648824722513
+        value: 849123737586636
       - key: CLOUDINARY_API_SECRET
         sync: false
       - key: MONGODB_URI
