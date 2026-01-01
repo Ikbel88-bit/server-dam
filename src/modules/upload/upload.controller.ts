@@ -14,6 +14,8 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { ApiTags, ApiBearerAuth, ApiConsumes, ApiBody } from '@nestjs/swagger';
 import { CloudinaryService } from './cloudinary.service';
+import type { Express } from 'express';
+import 'multer';
 
 @ApiTags('Upload')
 @ApiBearerAuth('JWT-auth')

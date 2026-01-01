@@ -3,6 +3,8 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { v2 as cloudinary, UploadApiResponse, UploadApiErrorResponse } from 'cloudinary';
 import { Readable } from 'stream';
+import type { Express } from 'express';
+import 'multer';
 
 @Injectable()
 export class CloudinaryService {

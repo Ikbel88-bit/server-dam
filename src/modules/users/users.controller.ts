@@ -13,7 +13,8 @@ import {
   Res,
   NotFoundException,
 } from '@nestjs/common';
-import type { Response } from 'express';
+import type { Response, Express } from 'express';
+import 'multer';
 import { join, isAbsolute } from 'path';
 import * as fs from 'fs';
 import { FileInterceptor } from '@nestjs/platform-express';
